@@ -1,0 +1,36 @@
+app:
+    expiration: 300 # database expiration (in seconds, 300 = 5mins)
+    ttl: 60 # cache time-to-live (in seconds, 60 = 1min)
+    apiUrl: http://ip-api.com/json/
+
+logging:
+  level: INFO
+  loggers:
+    com.hilton: DEBUG
+    org.h2: DEBUG
+
+httpClient:
+  timeout: 2000ms
+  connectionTimeout: 2000ms
+  timeToLive: 1h
+  cookiesEnabled: false
+  maxConnections: 1024
+  maxConnectionsPerRoute: 1024
+  keepAlive: 0ms
+  retries: 0
+  userAgent: Api Query App (Geo Service)
+
+database:
+  driverClass: org.h2.Driver
+  user: sa
+  url: jdbc:h2:tcp://localhost/~/test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+  properties:
+    charSet: UTF-8
+  maxWaitForConnection: 1s
+  validationQuery: "SELECT 1"
+  validationQueryTimeout: 3s
+  minSize: 8
+  maxSize: 32
+  checkConnectionWhileIdle: false
+  evictionInterval: 10s
+  minIdleTime: 1 minute
